@@ -1,63 +1,97 @@
 const inquirer = require("inquirer");
 const fs = require('fs');
-const licenses = require('./licenses');
 
 inquirer.prompt([
-    // {
-    //     type: 'input',
-    //     message: 'What is the title of your project?',
-    //     name: 'title'
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'Tell me about the project:',
-    //     name: 'description'
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'What are the installation instructions?',
-    //     name: 'installation instructions'
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'What about usage information?',
-    //     name: 'usage information'
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'What are the contribution guidelines?',
-    //     name: 'contribution guidelines'
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'Any test instructions?',
-    //     name: 'test instructions'
-    // },
+    {
+        type: 'input',
+        message: 'What is the title of your project?',
+        name: 'title'
+    },
+    {
+        type: 'input',
+        message: 'Tell me about the project:',
+        name: 'description'
+    },
+    {
+        type: 'input',
+        message: 'What are the installation instructions?',
+        name: 'installationInstructions'
+    },
+    {
+        type: 'input',
+        message: 'What about usage information?',
+        name: 'usageInformation'
+    },
+    {
+        type: 'input',
+        message: 'What are the contribution guidelines?',
+        name: 'contributionGuidelines'
+    },
+    {
+        type: 'input',
+        message: 'Any test instructions?',
+        name: 'testInstructions'
+    },
     {
         type: 'list',
         message: 'What kind of license would you like to use?',
         choices: ['MIT', 'Mozilla', 'Boost', 'GNU', 'Apache'],
         name: 'license'
     },
-    // {
-    //     type: 'input',
-    //     message: 'What is your GitHub username?',
-    //     name: 'github'
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'And your email address?',
-    //     name: 'email'
-    // }
-]).then((response)=> {
-    let badge;
-    switch (response.license) {
-        case 'MIT':
-            badge = licenses.licenseObj.mit.badge;
-            break;
-        case 'Mozilla':
-            badge = licenses.licenseObj.mozilla.badge;
+    {
+        type: 'input',
+        message: 'What is your GitHub username?',
+        name: 'github'
+    },
+    {
+        type: 'input',
+        message: 'And your email address?',
+        name: 'email'
     }
-    fs.writeFile('newREADME.md', badge, (err)=>
+]).then((response)=> {
+    fs.writeFile(`${response.title}-README.md`, `# ${response.title}
+
+![GitHub License](https://img.shields.io/badge/license-${response.license}-blue.svg)
+    
+## Description
+    
+${response.description}
+    
+## Table of Contents
+    
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
+    
+## Installation
+    
+${response.installationInstructions}
+    
+## Usage
+    
+${response.usageInstructions}
+    
+## License
+    
+This application is covered under the ${response.license} license.
+    
+## Contributing
+    
+${response.contributionGuidelines}
+    
+## Tests
+    
+${response.testInstructions}
+    
+## Questions
+    
+My GitHub profile is located at:
+https://github.com/${response.github}
+    
+For any questions, please email me at:
+${response.email}`, (err)=>
     err ? console.log(err) : console.log("You've created a new README file!"))
 })

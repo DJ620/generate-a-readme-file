@@ -1,11 +1,18 @@
 # {Title}
-{badge}
+![GitHub License](https://img.shields.io/badge/license-{license}-blue.svg)
 
 ## Description
 
 {description}
 
 ## Table of Contents
+
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
 
 ## Installation
 
@@ -17,7 +24,7 @@
 
 ## License
 
-{license}
+This application is covered under the {license} license.
 
 ## Contributing
 
@@ -34,3 +41,4 @@ https://github.com/{github username}
 
 For any questions, please email me at:
 {email}
+
