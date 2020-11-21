@@ -49,7 +49,8 @@ inquirer.prompt([
         name: 'email'
     }
 ]).then((response)=> {
-    fs.writeFile(`${response.title}-README.md`, `# ${response.title}
+    const title = response.title.split(" ").join("-");
+    fs.writeFile(`${title}-README.md`, `# ${response.title}
 
 ![GitHub License](https://img.shields.io/badge/license-${response.license}-blue.svg)
     
@@ -94,4 +95,4 @@ https://github.com/${response.github}
 For any questions, please email me at:
 ${response.email}`, (err)=>
     err ? console.log(err) : console.log("You've created a new README file!"))
-})
+});
