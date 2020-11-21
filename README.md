@@ -17,13 +17,19 @@ This is an application that simplifies the process of creating a README file. It
 
 To use this application, you must have Node.js on your system, and download the npm package 'Inquirer'. To do this, open your terminal, navigate to the proper file, and type in 'npm init -y'. The '-y' is optional, but streamlines the process by naming the file based on the parent folder. This process will create a package.json file within your root directory.
 
+![npm init -y](assets/img/init.png)
+
 Once you have created the package.json, go back to the terminal and type 'npm i inquirer' and hit enter. This will download the Inquirer package onto your computer and store it in the root directory of your file structure. 
+
+![npm i inquirer](assets/img/install.png)
 
 Once you have completed these steps, go back once again to the terminal, and type in 'node index.js' and answer each of the prompts with the information you would like displayed in the README file. Once you have finished, you will see a brand new and completed README file in your root directory. 
 
 For a video walk-through of this process, click the following link:
 
 https://drive.google.com/file/d/1QXF_r0NUQFnAQzTx-zPa_y_9-zn0giuY/view
+
+The README file created in the above video is included in this repository under the name "Generate-a-readme-file-README.md" within the assets folder.
 
 ## Credits
 
